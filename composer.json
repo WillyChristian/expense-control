@@ -1,0 +1,18 @@
+{
+    "name": "will/aula-php",
+    "description": "php studies",
+    "autoload": {
+        "psr-4": {
+            "Will\\AulaPhp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "WillyChristian",
+            "email": "crisaort@gmail.com"
+        }
+    ],
+    "require": {
+        "phpgt/fetch": "^1.0"
+    }
+}
