@@ -1,28 +1,26 @@
-import React from 'react'
-import useSWR from 'swr'
+import useSWR from 'swr';
 
 // components
-import Tabela from './components/tabela'
-import Formulario from '../pages/components/formulario'
-import Erro from './components/erro'
-import LoadPage from './components/load_page'
+import { Body } from './styles/_index';
+import Content from './components/regions/Content';
+import Sidebar from './components/regions/Sidebar';
+
+import LoadPage from './components/Load';
+import ErrorPage from './components/Error/erro';
 
 function Home() {
-  const { data, error } = useSWR('/api/tabela_pecas')
-  if (error) return <Erro />
-  // if (!data) return <LoadPage />
-  if (data) {
-    return (
-      <>
-        <div>
-          <p>Aqui tava o Logo</p>
-        </div>
-        <div>
-          <Formulario />
-          <Tabela data={data} />
-        </div>
-      </>
-    )
-  }
+	const fetcher = (...args) => fetch(...args).then((res) => res.json());
+	const { data, error } = useSWR('/api/get-data', fetcher);
+
+	if (error) return <ErrorPage err={error} />;
+	if (!data) return <LoadPage />;
+	if (data) {
+		return (
+			<Body>
+				<Sidebar data={data} />
+				<Content />
+			</Body>
+		);
+	}
 }
-export default Home
+export default Home;
