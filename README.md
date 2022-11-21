@@ -4,14 +4,14 @@ It's been a while since I've had some difficulty to control my spendings, so I d
 
 ### How it works
 
-    It's pretty straight foward and quite simple. First, I copied a financial expense control spreadsheet from the internet and pasted it on a new google spreadsheet. Then, with a google developer account (it's not a special account... just a name), I went to the [dashboard](https://console.cloud.google.com/apis/dashboard), created a new app and gave to it a license to the Gooogle Spreadsheet API. With this, I can use an app (can be mobile or web) to menage my sheets and add/remove data from it right on my phone
+It's pretty straight foward and quite simple. First, I copied a financial expense control spreadsheet from the internet and pasted it on a new google spreadsheet. Then, with a google developer account (it's not a special account... just a name), I went to the [dashboard](https://console.cloud.google.com/apis/dashboard), created a new app and gave to it a license to the Gooogle Spreadsheet API. With this, I can use an app (can be mobile or web) to menage my sheets and add/remove data from it right on my phone
 
 ### What I using
 
-    I decide to use [Next.JS](https://nextjs.org/), just because it makes easy to create on the same app the front end and the API/Backend. With Next, [React](https://reactjs.org/) cames as default and I choose [Styled Components](https://styled-components.com/) beacause it's handy to wrote the SASS-like CSS and use JS in styles.
+I decide to use [Next.JS](https://nextjs.org/), just because it makes easy to create on the same app the front end and the API/Backend. With Next, [React](https://reactjs.org/) cames as default and I choose [Styled Components](https://styled-components.com/) beacause it's handy to wrote the SASS-like CSS and use JS in styles.
 
-    For the next steps, I decide to add some animations on mobile despite the fact that my form is not that big. However, it will helps to handle situations with less screen. So then, I'm planning to use [GSAP](https://greensock.com/gsap/), which I have experiensed before and it's an awesome library.
+For the next steps, I decide to add some animations on mobile despite the fact that my form is not that big. However, it will helps to handle situations with less screen. So then, I'm planning to use [GSAP](https://greensock.com/gsap/), which I have experiensed before and it's an awesome library.
 
 ### Deploy on Vercel
 
-    I will deploy the app soon. Actually, just the sidebar and the form has some content builded, so... when more content were added, I will use [Vercel](https://vercel.com/) to hold the application. And... I also have to build some access control first.
+I will deploy the app soon. Actually, just the sidebar and the form has some content builded, so... when more content were added, I will use [Vercel](https://vercel.com/) to hold the application. And... I also have to build some access control first.
