@@ -1,34 +1,17 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Propouse / Motivation
 
-## Getting Started
+It's been a while since I've had some difficulty to control my spendings, so I decide to create this project to helps me to deal with it.
 
-First, run the development server:
+### How it works
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+    It's pretty straight foward and quite simple. First, I copied a financial expense control spreadsheet from the internet and pasted it on a new google spreadsheet. Then, with a google developer account (it's not a special account... just a name), I went to the [dashboard](https://console.cloud.google.com/apis/dashboard), created a new app and gave to it a license to the Gooogle Spreadsheet API. With this, I can use an app (can be mobile or web) to menage my sheets and add/remove data from it right on my phone
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### What I using
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+    I decide to use [Next.JS](https://nextjs.org/), just because it makes easy to create on the same app the front end and the API/Backend. With Next, [React](https://reactjs.org/) cames as default and I choose [Styled Components](https://styled-components.com/) beacause it's handy to wrote the SASS-like CSS and use JS in styles.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+    For the next steps, I decide to add some animations on mobile despite the fact that my form is not that big. However, it will helps to handle situations with less screen. So then, I'm planning to use [GSAP](https://greensock.com/gsap/), which I have experiensed before and it's an awesome library.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### Deploy on Vercel
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+    I will deploy the app soon. Actually, just the sidebar and the form has some content builded, so... when more content were added, I will use [Vercel](https://vercel.com/) to hold the application. And... I also have to build some access control first.
