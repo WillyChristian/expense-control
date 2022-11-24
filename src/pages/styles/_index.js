@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const Body = styled.div`
+export const Main = styled.main`
 	display: flex;
 	height: 100vh;
 	width: 100vw;

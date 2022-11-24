@@ -1,10 +1,10 @@
-import { GoogleSpreadsheet } from 'google-spreadsheet';
+import { GoogleSpreadsheet } from "google-spreadsheet";
 
 const doc = new GoogleSpreadsheet(process.env.SHEET_ID);
 
 const toOriginal = (value) => {
-	const buff = Buffer.from(value, 'base64');
-	return buff.toString('ascii');
+	const buff = Buffer.from(value, "base64");
+	return buff.toString("ascii");
 };
 
 export default async (req, res) => {
@@ -17,33 +17,33 @@ export default async (req, res) => {
 		await doc.loadInfo();
 
 		const sheetSettings = await doc.sheetsByTitle.Settings;
-		const sheetDaily = await doc.sheetsByTitle.Daily;
+		const sheetType = await doc.sheetsByTitle.type;
 
-		await sheetDaily.loadCells();
+		await sheetType.loadCells();
 		const sheetSettingsRows = await sheetSettings.getRows();
 
 		const settings = {
-			method: [{ value: 'empty', label: 'Selecione a forma de Pagamento' }],
-			bank: [{ value: 'empty', label: 'Selecione o Cartão Usado' }],
-			type: [{ value: 'empty', label: 'Selecione' }],
+			method: [],
+			bank: [],
+			type: [],
 		};
 		sheetSettingsRows.forEach((row) => {
 			settings.method.push({
-				value: row['Payment Methods key'],
-				label: row['Payment Methods value'],
+				value: row["Payment Methods key"],
+				label: row["Payment Methods value"],
 			});
 
 			settings.bank.push({
-				value: row['Bank cards key'],
-				label: row['Bank cards value'],
+				value: row["Bank cards key"],
+				label: row["Bank cards value"],
 			});
 		});
 
 		let i = 0;
-		while (await sheetDaily.getCell(0, i).value) {
+		while (await sheetType.getCell(0, i).value) {
 			settings.type.push({
-				value: await sheetDaily.getCell(0, i).value.toLowerCase(),
-				label: await sheetDaily.getCell(0, i).value,
+				value: await sheetType.getCell(0, i).value.toLowerCase(),
+				label: await sheetType.getCell(0, i).value,
 			});
 			i++;
 		}

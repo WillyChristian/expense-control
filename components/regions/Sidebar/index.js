@@ -1,23 +1,35 @@
-import React, { useState } from 'react';
-import Input from '../../Forms/Input';
-import Select from '../../Forms/Select';
-import CustomDatePicker from '../../Forms/Datepicker';
-import { Container } from './style';
-import { RiMoneyDollarCircleLine } from 'react-icons/ri';
+import React, { useContext } from "react";
+import Input from "../../Forms/Input";
+import Select from "../../Forms/Select";
+import CustomDatePicker from "../../Forms/Datepicker";
+import { Container } from "./style";
+import { RiMoneyDollarCircleLine } from "react-icons/ri";
 
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import { AppContext } from "../../../context/Context";
 
-export default function Sidebar({ data }) {
+export default function Sidebar() {
+	const { sheetData } = useContext(AppContext);
 	const formik = useFormik({
 		initialValues: {
-			buyingDate: '',
-			cardBank: '',
-			deadlineDate: '',
-			expense: '',
-			method: '',
-			price: '',
+			buyingDate: "",
+			cardBank: "",
+			deadlineDate: "",
+			expense: "",
+			method: "",
+			price: "",
 		},
+		onSubmit: (data) => console.log(data),
+		// Under develop
+		// validationSchema: Yup.object().shape({
+		// 	buyingDate: Yup.date().required('Campo Obrigatório'),
+		// 	cardBank: Yup.string().required(),
+		// 	deadlineDate: Yup.date().required(),
+		// 	expense: Yup.string().required(),
+		// 	method: Yup.string().required(),
+		// 	price: Yup.number().required(),
+		//}),
 	});
 
 	return (
@@ -30,17 +42,17 @@ export default function Sidebar({ data }) {
 				<Select
 					handleChange={formik.handleChange}
 					name="method"
-					options={data.method}
+					options={sheetData.method}
 					title="Forma de Pagamento"
 					value={formik.values.method}
 				/>
 
-				{formik.values.method === 'credit' && (
+				{formik.values.method === "credit" && (
 					<>
 						<Select
 							handleChange={formik.handleChange}
 							name="cardBank"
-							options={data.bank}
+							options={sheetData.bank}
 							title="Qual cartão"
 							value={formik.values.cardBank}
 						/>
@@ -62,7 +74,7 @@ export default function Sidebar({ data }) {
 				<Select
 					handleChange={formik.handleChange}
 					name="expense"
-					options={data.type}
+					options={sheetData.type}
 					title="Tipo de Despesa"
 					value={formik.values.expense}
 				/>

@@ -1,25 +1,26 @@
-import useSWR from 'swr';
+import { useContext } from "react";
 
 // components
-import { Body } from './styles/_index';
-import Content from './components/regions/Content';
-import Sidebar from './components/regions/Sidebar';
+import { Body, Main } from "./styles/_index";
+import Content from "../../components/regions/Content";
+import Sidebar from "../../components/regions/Sidebar";
+import Header from "../../components/regions/Header";
 
-import LoadPage from './components/Load';
-import ErrorPage from './components/Error/erro';
+import LoadPage from "../../components/Load";
+import { AppContext } from "../../context/Context";
 
 function Home() {
-	const fetcher = (...args) => fetch(...args).then((res) => res.json());
-	const { data, error } = useSWR('/api/get-data', fetcher);
-
-	if (error) return <ErrorPage err={error} />;
-	if (!data) return <LoadPage />;
-	if (data) {
+	const { sheetData } = useContext(AppContext);
+	if (!sheetData) return <LoadPage />;
+	if (sheetData) {
 		return (
-			<Body>
-				<Sidebar data={data} />
-				<Content />
-			</Body>
+			<>
+				<Header />
+				<Main>
+					<Sidebar />
+					<Content />
+				</Main>
+			</>
 		);
 	}
 }
