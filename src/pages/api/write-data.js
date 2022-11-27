@@ -1,32 +1,40 @@
-import React from 'react'
-
 import { GoogleSpreadsheet } from 'google-spreadsheet'
 const doc = new GoogleSpreadsheet(process.env.SHEET_ID)
 
-const toOriginal = value =>{
-    const buff = Buffer.from(value, 'base64')
-    return buff.toString('ascii')
-}
+export default async (req, res) => {
+  try {
+    const body = JSON.parse(req.body)
+    const buyingDate = body.buyingDate.slice(0, 10)
+    const deadlineDate = body.deadlineDate.slice(0, 10)
+    const installments = (body.price / body.times).toFixed(2).toString()
 
-export default async (req,res) =>{
-    
-    try {
-        await doc.useServiceAccountAuth({
-            client_email: process.env.EMAIL,
-            private_key: toOriginal(process.env.SECRET_KEY)
-        })        
-        await doc.loadInfo()
-        const folha = doc.sheetsByIndex[0]
-        const row = JSON.parse(req.body)
-        await folha.addRow({
-            Marca: row.marca,
-            Modelo: row.modelo,
-            Peça: row.peca,
-            Preço: row.preço
-        });
-        res.status(200).send('Cadastrado com Sucesso')
-    } catch (error) {
-        res.status(500).send(console.log(error))
+    const newRow = {
+      ...body,
+      buyingDate,
+      deadlineDate,
+      installments,
     }
-}
 
+    await doc.useServiceAccountAuth({
+      client_email: process.env.CLIENT_EMAIL,
+      private_key: process.env.SECRET_KEY,
+    })
+    await doc.loadInfo()
+    const daily = await doc.sheetsByTitle.Daily
+
+    await daily
+      .addRow({
+        Method: newRow.method,
+        Card: newRow.cardBank || '',
+        Deadline: newRow.deadlineDate || '',
+        Value: newRow.price,
+        Type: newRow.expense,
+        Date: newRow.buyingDate,
+        Times: newRow.times,
+        Installments: newRow.installments,
+      })
+      .then((res) => res.status(200).send('Cadastrado com sucesso!'))
+  } catch (error) {
+    res.status(500).send(error)
+  }
+}
