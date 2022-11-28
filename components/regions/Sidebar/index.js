@@ -11,29 +11,31 @@ import * as Yup from 'yup'
 
 export default function Sidebar() {
   const { sheetData } = useContext(AppContext)
+
+  const initialValues = {
+    buyingDate: '',
+    cardBank: '',
+    deadlineDate: '',
+    expense: '',
+    method: '',
+    price: '',
+    times: '1',
+    installments: '',
+  }
   const formik = useFormik({
-    initialValues: {
-      buyingDate: '',
-      cardBank: '',
-      deadlineDate: '',
-      expense: '',
-      method: '',
-      price: '',
-      times: '1',
-      installments: '',
-    },
+    initialValues,
     onSubmit: async (data) => {
-      try {
-        await fetch('/api/write-data', {
-          method: 'POST',
-          body: JSON.stringify(data),
-        }).then((res) => {
-          res.json()
-          formik.resetForm
+      const dataStr = JSON.stringify(data)
+      fetch('/api/write-data', {
+        method: 'POST',
+        body: dataStr,
+      })
+        .then((resp) => {
+          if (resp.status === 200) {
+            return formik.resetForm(initialValues)
+          }
         })
-      } catch (err) {
-        console.log(err)
-      }
+        .catch((err) => err)
     },
     // Under develop
     // validationSchema: Yup.object().shape({
