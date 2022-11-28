@@ -1,10 +1,9 @@
 import React, { useContext } from 'react'
-import Input from '../../Forms/Input'
+import { Input } from '../../Forms/Input'
 import Select from '../../Forms/Select'
 import Button from '../../Forms/Button'
 import CustomDatePicker from '../../Forms/Datepicker'
 import { Container } from './style'
-import { RiMoneyDollarCircleLine } from 'react-icons/ri'
 import { AppContext } from '../../../context/Context'
 
 import { useFormik } from 'formik'
@@ -19,7 +18,7 @@ export default function Sidebar() {
       deadlineDate: '',
       expense: '',
       method: '',
-      price: '0.00',
+      price: '',
       times: '1',
       installments: '',
     },
@@ -49,72 +48,73 @@ export default function Sidebar() {
 
   return (
     <Container>
-      <div className="sidebar__header">
-        <RiMoneyDollarCircleLine className="sidebar__header--icon" />
-        <h3>Meu Controle Financeiro</h3>
-      </div>
-      <form onSubmit={formik.handleSubmit}>
-        <CustomDatePicker
-          date={formik.values.buyingDate}
-          handleChange={formik.handleChange}
-          label="Data da Compra"
-          name="buyingDate"
-        />
-        <Input
-          handleChange={formik.handleChange}
-          label="Preço"
-          name="price"
-          placeholder="Valor do produto (ou a soma)"
-          initValue={formik.values.price}
-        />
-        <Select
-          handleChange={formik.handleChange}
-          name="method"
-          options={sheetData.method}
-          title="Forma de Pagamento"
-          value={formik.values.method}
-        />
-
-        {formik.values.method === 'credit' && (
-          <>
-            <Select
-              handleChange={formik.handleChange}
-              name="cardBank"
-              options={sheetData.bank}
-              title="Qual cartão"
-              value={formik.values.cardBank}
-            />
-            <CustomDatePicker
-              date={formik.values.deadlineDate}
-              handleChange={formik.handleChange}
-              label="Vencimento da fatura"
-              name="deadlineDate"
-            />
-            <Input
-              handleChange={formik.handleChange}
-              label="Quantas Vezes"
-              name="times"
-              placeholder="Valor mínimo é 1"
-              initValue={formik.values.times}
-            />
-          </>
-        )}
-        <Select
-          handleChange={formik.handleChange}
-          name="expense"
-          options={sheetData.type}
-          title="Tipo de Despesa"
-          value={formik.values.expense}
-        />
-        <div className="sidebar__wrapper-buttons">
-          <Button formType="submit" title="Enviar" />
-          <Button
-            formType="button"
-            handleClick={formik.resetForm}
-            title="Limpar"
-          />
+      <div className="sidebar">
+        <div className="sidebar__header">
+          <p>aqui vai o botão de abrir o menu</p>
         </div>
-      </form>
+        <form onSubmit={formik.handleSubmit}>
+          <CustomDatePicker
+            date={formik.values.buyingDate}
+            handleChange={formik.handleChange}
+            label="Data da Compra"
+            name="buyingDate"
+          />
+          <Input
+            handleChange={formik.handleChange}
+            label="Preço"
+            name="price"
+            placeholder="Separe com ponto: ."
+            initValue={formik.values.price}
+          />
+          <Select
+            handleChange={formik.handleChange}
+            name="method"
+            options={sheetData.method}
+            title="Forma de Pagamento"
+            value={formik.values.method}
+          />
+
+          {formik.values.method === 'credit' && (
+            <>
+              <Select
+                handleChange={formik.handleChange}
+                name="cardBank"
+                options={sheetData.bank}
+                title="Qual cartão"
+                value={formik.values.cardBank}
+              />
+              <CustomDatePicker
+                date={formik.values.deadlineDate}
+                handleChange={formik.handleChange}
+                label="Vencimento da fatura"
+                name="deadlineDate"
+              />
+              <Input
+                handleChange={formik.handleChange}
+                label="Quantas Vezes"
+                name="times"
+                placeholder="Valor mínimo é 1"
+                initValue={formik.values.times}
+              />
+            </>
+          )}
+          <Select
+            handleChange={formik.handleChange}
+            name="expense"
+            options={sheetData.type}
+            title="Tipo de Despesa"
+            value={formik.values.expense}
+          />
+          <div className="sidebar__wrapper-buttons">
+            <Button formType="submit" title="Enviar" />
+            <Button
+              formType="button"
+              handleClick={formik.resetForm}
+              title="Limpar"
+            />
+          </div>
+        </form>
+      </div>
     </Container>
   )
 }
