@@ -32,12 +32,15 @@ export default function Sidebar() {
       })
         .then((resp) => {
           if (resp.status === 200) {
-            return formik.resetForm(initialValues)
+            formik.resetForm(initialValues)
+            return alert('Cadastrado com Sucesso')
           }
         })
-        .catch((err) => err)
+        .catch((err) => console.log(err)) // TODO: Redirect to the error page
     },
-    // Under develop
+    /**
+     * TODO: Finish the form validation
+     */
     // validationSchema: Yup.object().shape({
     //   buyingDate: Yup.date().required('Campo Obrigatório'),
     //   cardBank: Yup.string().required(),
