@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import Card from '../../components/Card'
+import Card from '../../components/Card/index'
 import { CardWrapper } from './styles/_cards'
 import { AppContext } from '../../context/Context'
 

@@ -7,7 +7,7 @@ import $ from 'jquery'
 import Spends from './Spends'
 
 export default function Content() {
-  useEffect(() => {
+  useEffect(function() {
     $('.accordion').each(function () {
       $(this).on('click', function () {
         if ($(this).hasClass('colapsed')) {
@@ -20,7 +20,7 @@ export default function Content() {
         }
       })
     })
-  }, [])
+  })
 
   return (
     <MainContent>
@@ -38,7 +38,7 @@ export default function Content() {
         </Link>
       </section>
       <section className="home__section--idk accordion colapsed">
-        Seção 3 Vou pensar em algumas médias{' '}
+        Seção 3 Vou pensar em algumas médias
       </section>
     </MainContent>
   )

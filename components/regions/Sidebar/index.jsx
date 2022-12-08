@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
-import { Input } from '../../Forms/Input'
-import Select from '../../Forms/Select'
-import Button from '../../Forms/Button'
-import CustomDatePicker from '../../Forms/Datepicker'
+import { Input } from '../../Forms/Input/index'
+import Select from '../../Forms/Select/index'
+import Button from '../../Forms/Button/index'
+import CustomDatePicker from '../../Forms/Datepicker/index'
 import { Container } from './style'
 import { AppContext } from '../../../context/Context'
 
