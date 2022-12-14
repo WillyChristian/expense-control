@@ -1,34 +1,45 @@
 import styled from 'styled-components'
 
 export const MainContent = styled.div`
-  height: 100%;
   width: 100%;
   background-color: ${(props) => props.theme.colors.white};
   display: flex;
   flex-direction: column;
-  justify-content: center;
 
   & .accordion {
     height: 300px;
 
     &.colapsed {
-      height: 150px;
+      height: 200px;
     }
   }
 
-  .home-section {
+  .home__section {
     &--spends {
-      border: 1px dashed purple;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
     }
-    &--cards {
-      border: 1px solid red;
-    }
-    &--idk {
-      border: 1px solid green;
+
+    &--balance {
+      padding: 1rem;
+      .title {
+        font-family: sans-serif;
+        font-size: 1rem;
+        line-height: 0.8rem;
+        font-weight: 700;
+        padding: 0.2rem 0;
+        text-align: center;
+      }
+      .cards {
+        height: 100%;
+        display: grid;
+        justify-content: center;
+        grid-template-columns: repeat(3, 12rem);
+        gap: 3rem;
+        padding: 1rem;
+      }
     }
   }
 `

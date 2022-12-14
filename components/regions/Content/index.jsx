@@ -5,9 +5,10 @@ import $ from 'jquery'
 
 // components
 import Spends from './Spends'
+import Balance from './Balance'
 
 export default function Content() {
-  useEffect(function() {
+  useEffect(function () {
     $('.accordion').each(function () {
       $(this).on('click', function () {
         if ($(this).hasClass('colapsed')) {
@@ -24,21 +25,17 @@ export default function Content() {
 
   return (
     <MainContent>
-      <section className="home-section--spends accordion">
+      <section className="home__section--balance accordion">
+        <h4 className="title">Balanço da Semana</h4>
+        <div className="cards">
+          <Balance />
+        </div>
+      </section>
+      <section className="home__section--spends accordion colapsed">
         <Spends />
         <div className="home-section--spends-link">
           <Link href="/spends">Ver mais</Link>
         </div>
-      </section>
-      <section className="home__section--cards accordion colapsed">
-        Seção 2 vai ter um resumo das compras a crédito por cartão. Link para a
-        página dos cartões
-        <Link href="/cards" className="link">
-          Página de cartões
-        </Link>
-      </section>
-      <section className="home__section--idk accordion colapsed">
-        Seção 3 Vou pensar em algumas médias
       </section>
     </MainContent>
   )

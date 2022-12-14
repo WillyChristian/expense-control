@@ -4,8 +4,6 @@ import { useContext } from 'react'
 import { Main } from './styles/_index'
 import Content from '../../components/regions/Content'
 import Sidebar from '../../components/regions/Sidebar/index'
-import Header from '../../components/regions/Header/index'
-import Footer from '../../components/regions/Footer/index'
 
 import LoadPage from '../../components/Load/index'
 import { AppContext } from '../../context/Context'
@@ -16,12 +14,10 @@ function Home() {
   // if (sheetData) {
   return (
     <>
-      <Header />
       <Main>
         <Sidebar />
         <Content />
       </Main>
-      <Footer />
     </>
   )
   // }
