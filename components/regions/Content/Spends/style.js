@@ -1,22 +1,28 @@
 import styled from 'styled-components'
 
 export const SpendContainer = styled.div`
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   background-color: ${(props) => props.theme.alpha.gray};
-  border-bottom: 2px solid ${(props) => props.theme.alpha.white};
   width: 50%;
+  margin-bottom: 0.2rem;
   .spends {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0.2rem 0.5rem;
+    padding: .2rem .2rem .2rem 2rem;
     p {
-      padding: 0.2rem 0;
+      padding-left: 1rem;
     }
-
+    &.local {
+      grid-column: 1 / 2;
+      display: flex;
+      align-items: center;
+    }
+    &.price {
+      grid-column: 2 / 3;
+      display: flex;
+      align-items: center;
+    }
     .icon {
+      grid-column: 3 / 4;
       font-size: 1.2rem;
       line-height: 1;
     }
