@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'
 import { SpendContainer } from './style'
 import { AppContext } from '../../../../context/Context'
-import {TbCurrencyReal} from 'react-icons/tb'
+import { TbCurrencyReal } from 'react-icons/tb'
+
 export default function Spends() {
   const { spendsMock, getIcon } = useContext(AppContext)
-
   return (
     <>
       <p>Últimos gastos</p>
@@ -12,7 +12,7 @@ export default function Spends() {
         return (
           <SpendContainer>
             <div className="spends local">
-              {getIcon(spend.onde, "icon")}
+              {getIcon(spend.onde, 'icon')}
               <p>{spend.onde}</p>
             </div>
             <div className="spends price">

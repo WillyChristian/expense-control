@@ -9,8 +9,8 @@ export const BankBalance = styled(NormalHomeCard)`
   }
   .currency {
     &__container {
-      display: flex;
       align-items: center;
+      display: flex;
     }
     &__icon {
       font-size: 1.1rem;
@@ -26,8 +26,8 @@ export const CardBalance = styled(NormalHomeCard)`
   }
   .currency {
     &__container {
-      display: flex;
       align-items: center;
+      display: flex;
     }
     &__icon {
       font-size: 1.1rem;
@@ -38,5 +38,4 @@ export const CardBalance = styled(NormalHomeCard)`
 export const InvestBalance = styled(NormalHomeCard)`
   justify-content: space-around;
   padding: 2rem 1rem;
-
 `

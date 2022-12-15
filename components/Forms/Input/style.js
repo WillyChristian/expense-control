@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
+  align-items: flex-start;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
   padding-bottom: 1rem;
   width: 100%;
 
@@ -12,8 +12,8 @@ export const Container = styled.div`
     &-label {
       font-family: sans-serif;
       font-size: 1rem;
-      line-height: 0.8rem;
       font-weight: 700;
+      line-height: 0.8rem;
       padding: 0.2rem 0;
     }
     &-wrapper {

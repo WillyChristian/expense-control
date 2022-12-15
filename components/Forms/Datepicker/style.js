@@ -8,14 +8,14 @@ export const Wrapper = styled.div`
     &-label {
       font-family: sans-serif;
       font-size: 1rem;
-      line-height: 0.8rem;
       font-weight: 700;
+      line-height: 0.8rem;
       padding: 0.2rem 0;
     }
     &-item {
-      padding: 0.5rem;
       border-color: ${(props) => props.theme.alpha.gray};
       border-radius: 0.5rem;
+      padding: 0.5rem;
       width: 100%;
     }
   }

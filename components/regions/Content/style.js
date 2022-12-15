@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 export const MainContent = styled.div`
-  width: 100%;
   background-color: ${(props) => props.theme.colors.white};
   display: flex;
   flex-direction: column;
+  width: 100%;
 
   & .accordion {
     height: 300px;
@@ -16,10 +16,10 @@ export const MainContent = styled.div`
 
   .home__section {
     &--spends {
+      align-items: center;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      align-items: center;
     }
 
     &--balance {
@@ -27,17 +27,17 @@ export const MainContent = styled.div`
       .title {
         font-family: sans-serif;
         font-size: 1rem;
-        line-height: 0.8rem;
         font-weight: 700;
+        line-height: 0.8rem;
         padding: 0.2rem 0;
         text-align: center;
       }
       .cards {
-        height: 100%;
         display: grid;
-        justify-content: center;
-        grid-template-columns: repeat(3, 12rem);
         gap: 3rem;
+        grid-template-columns: repeat(3, 12rem);
+        height: 100%;
+        justify-content: center;
         padding: 1rem;
       }
     }

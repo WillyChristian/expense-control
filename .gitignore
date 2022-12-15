@@ -34,5 +34,6 @@ yarn-error.log*
 # vercel
 .vercel
 .ui
+.yarn
 credentials.json
 gcredentials.json
