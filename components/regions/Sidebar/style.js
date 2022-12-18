@@ -2,7 +2,9 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   background-color: ${(props) => props.theme.colors.white};
-  border-right: 1px solid ${(props) => props.theme.alpha.gray};
+  border: 1px solid ${(props) => props.theme.alpha.gray};
+  position: absolute;
+  left: 100%;
   .sidebar {
     padding: 1rem 1rem 1rem 2rem;
     &__header {

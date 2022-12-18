@@ -7,6 +7,7 @@ import Sidebar from '../../components/regions/Sidebar/index'
 
 import LoadPage from '../../components/Load/index'
 import { AppContext } from '../../context/Context'
+import Header from '../../components/regions/Header'
 
 function Home() {
   const { sheetData } = useContext(AppContext)
@@ -14,8 +15,8 @@ function Home() {
   // if (sheetData) {
   return (
     <>
+      <Header />
       <Main>
-        <Sidebar />
         <Content />
       </Main>
     </>
