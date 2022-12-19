@@ -1,9 +1,9 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const LogoArea = styled.div`
-  align-items: center;
-  display: flex;
-  &.header{
+  & > .header {
+    align-items: center;
+    display: flex;
     flex-direction: column;
     .header__brand {
       visibility: hidden;
@@ -12,10 +12,9 @@ export const LogoArea = styled.div`
 
   .header {
     &__icon {
-      color: #008000;
+      color: ${(props) => props.theme.colors.white};
       font-size: 2rem;
       line-height: 1.2;
-      margin: 0 0.5rem 0.2rem 0;
     }
     &__brand {
       color: ${(props) => props.theme.colors.white};

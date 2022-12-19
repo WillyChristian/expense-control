@@ -1,29 +1,16 @@
 import styled from 'styled-components'
 
 export const MainContent = styled.div`
-  background-color: ${(props) => props.theme.colors.white};
+  background-color: ${(props) => props.theme.alpha.white};
   display: flex;
   flex-direction: column;
-  width: 100%;
 
-  & .accordion {
-    height: 300px;
-
-    &.colapsed {
-      height: 200px;
-    }
-  }
-
-  .home__section {
-    &--spends {
-      align-items: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    &--balance {
+  .section {
+    &__balance {
+      border-radius: 1rem;
+      border: 1px solid ${(props) => props.theme.alpha.primary};
       padding: 1rem;
+      margin-bottom: 1rem;
       .title {
         font-family: sans-serif;
         font-size: 1rem;
@@ -34,12 +21,25 @@ export const MainContent = styled.div`
       }
       .cards {
         display: grid;
-        gap: 3rem;
-        grid-template-columns: repeat(3, 12rem);
+        gap: 1rem;
+        grid-template-rows: repeat(3, 1fr);
         height: 100%;
         justify-content: center;
         padding: 1rem;
+
+        @media (min-width: 768px) {
+          grid-template-columns: repeat(3, 12rem);
+          grid-template-rows: unset;
+        }
       }
+    }
+    &__spends {
+      align-items: center;
+      background-color: ${(props) => props.theme.colors.primary};
+      border-radius: 1rem;
+      display: flex;
+      flex-direction: column;
+      padding: 1rem ;
     }
   }
 `

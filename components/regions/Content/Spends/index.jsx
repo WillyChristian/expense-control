@@ -7,19 +7,19 @@ export default function Spends() {
   const { spendsMock, getIcon } = useContext(AppContext)
   return (
     <>
-      <p>Últimos gastos</p>
-      {spendsMock.map((spend) => {
+      <p>Últimas compras</p>
+      {spendsMock.map(({onde, valor, data}, index) => {
         return (
-          <SpendContainer>
+          <SpendContainer key={index}>
             <div className="spends local">
-              {getIcon(spend.onde, 'icon')}
-              <p>{spend.onde}</p>
+              {getIcon(onde, 'icon')}
+              <p>{onde}</p>
             </div>
             <div className="spends price">
               <TbCurrencyReal className="icon" />
-              <p>{spend.valor}</p>
+              <p>{valor}</p>
             </div>
-            <p className="spends date">{spend.data}</p>
+            <p className="spends date">{data}</p>
           </SpendContainer>
         )
       })}

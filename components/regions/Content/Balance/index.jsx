@@ -8,24 +8,28 @@ export default function Balance() {
   return (
     <>
       <BankBalance>
-        <SlWallet className="icon__wallet" />
+        <div className="icon__container">
+          <SlWallet className="icon" />
+        </div>
         <div className="currency__container">
           <TbCurrencyReal className="currency__icon" />
           <p className="currency__value">2.341,60</p>
         </div>
         <small>Saldo em conta</small>
       </BankBalance>
-      <CardBalance>
-        <BsCreditCard2Back className="icon__ccard" />
+      <BankBalance>
+        <div className="icon__container">
+          <BsCreditCard2Back className="icon" />
+        </div>
         <div className="currency__container">
           <TbCurrencyReal className="currency__icon" />
           <p className="currency__value">741,60</p>
         </div>
         <small>Gasto Cartão de Crédito</small>
-      </CardBalance>
-      <InvestBalance>
+      </BankBalance>
+      <BankBalance>
         <small>Investimentos (em breve...)</small>
-      </InvestBalance>
+      </BankBalance>
     </>
   )
 }

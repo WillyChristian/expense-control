@@ -3,6 +3,7 @@ export default {
   colors: {
     black: 'rgb(6, 6, 6)',
     gray: 'rgb(74, 102, 112)',
+    pure_white: 'hsl(0,100%,100%)',
     white: 'rgb(244, 244, 246)',
     off_white: 'rgb(180, 180, 167)',
     primary: 'rgb(0, 191, 178)',

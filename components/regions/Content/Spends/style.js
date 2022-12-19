@@ -5,7 +5,8 @@ export const SpendContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   margin-bottom: 0.2rem;
-  width: 50%;
+  width: 70%;
+
   .spends {
     padding: .2rem .2rem .2rem 2rem;
     p {

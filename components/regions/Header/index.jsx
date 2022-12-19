@@ -1,44 +1,12 @@
 import React from 'react'
-import Logo from '../../Logo/index'
-import Sidebar from '../Sidebar'
 import { HeaderContainer } from './style'
-import { TbCirclePlus, TbCircleMinus, TbChartLine } from 'react-icons/tb'
-import { MdOutlineCreditScore } from 'react-icons/md'
-import $ from 'jquery'
-
-const openAddMenu = (event) => {
-  const menu = $(event.target).next('.closed').toggle('fast');
-}
 
 export default function Header() {
   return (
     <HeaderContainer>
-      <Logo content="header" />
-      <ul>
-        <li>
-          <div className="icon__container" onClick={openAddMenu}>
-            <TbCirclePlus className="icon" />
-          </div>
-          <div className="content closed">
-            <Sidebar />
-          </div>
-        </li>
-        <li>
-          <div className="icon__container">
-            <TbCircleMinus className="icon" />
-          </div>
-        </li>
-        <li>
-          <div className="icon__container">
-            <MdOutlineCreditScore className="icon" />
-          </div>
-        </li>
-        <li>
-          <div className="icon__container">
-            <TbChartLine className="icon" />
-          </div>
-        </li>
-      </ul>
+      <div className="content">
+        <h1>Seja bem vindo, Willy</h1>
+      </div>
     </HeaderContainer>
   )
 }
