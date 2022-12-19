@@ -15,3 +15,7 @@ For the next steps, I decide to add some animations on mobile despite the fact t
 ### Deploy on Vercel
 
 I will deploy the app soon. Actually, just the sidebar and the form has some content builded, so... when more content were added, I will use [Vercel](https://vercel.com/) to hold the application. And... I also have to build some access control first.
+
+Last update (dec-19-2022):
+I'm working on the UI. I'm not so good when it comes create designs, so I'm getting some inspirations on [Dribbble](https://dribbble.com/). 
+![Captura de Tela 2022-12-19 às 00 01 05](https://user-images.githubusercontent.com/39393671/208339181-0306d682-9847-4885-9abd-2391ebe9a819.png)
